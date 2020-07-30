@@ -1,0 +1,31 @@
+{% extends 'frontpage/base.html' %}
+
+{% block content %}
+      <div class="col-lg-10 mx-auto text-justify lead">
+        <p>30 Jun</p>
+        <h3>Request for Comments - Ghost Edition</h3>
+        <p>Author: Cassy</p>
+        <p>Thanks for visiting! We've expanded our focus to more cybersecurity topics beyond just privacy. As our expertise and projects grow, so will this site.</p>
+        <p>I cherish the work I've put into this. I want to create it so that others can experience the same. Some example of our focus is on:</p>
+        <p>privacy advocacy, malware analysis, secure coding, software engineering, reverse engineering, data, AI/ML, crypto, forensics, incident response</p>
+
+        <style>
+          .read-more {
+            display: none;
+            /* visibility: hidden; */
+          }
+
+        </style>
+
+        <div id="retainable-rss-embed"
+        data-rss="https://medium.com/feed/@cassandriel"
+        data-maxcols="1"
+        data-layout="grid"
+        data-poststyle="inline"
+        data-readmore="Read More"
+        data-buttonclass="btn btn-primary read-more"
+        data-offset="-100"></div>
+      </div>
+
+      <script src="https://www.retainable.io/assets/retainable/rss-embed/retainable-rss-embed.js"></script>
+{% endblock %}
