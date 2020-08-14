@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ghost Artemis - A Complete Cyber Security Solution</title>
+    <meta name="description"
+          content="Ghost Artemis is a socially motivated group that creates tools and provides information for protecting yourself."/>
+
+    <!--Inter UI font-->
+    <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet">
+
+    <!--vendors styles-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="css/default.css" id="theme-color">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body style="overflow-x: hidden">
+
+<!--navigation-->
+<div id="header"></div>
+
+
+<section class="py-7 bg-dark section-angle top-right bottom-right" id="pricing">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto text-center">
+                <h2 class="text-white heading-black">Malware Scanner</h2>
+                <p class="text-light lead">Test against a sample to see if it's a malware.</p>
+            </div>
+        </div>
+        <div class="row mt-6">
+            <div class="col-md-12 mr-auto">
+                <h3>Intro</h3>
+                <p class="lead">
+                <p>This is a toy tool so please don't use it for commercial purposes. It uses existing engines to scan a file or a string and tells you whether or not it's a virus. It's small and extensible.</p>
+                <p>There are currently two versions but I'm focused on the online version. My desktop version is retired for now. Useful for quick look up on what's already out there.</p>
+                <p>As this is mostly static analysis, you could automate this into your analysis workflow. Typical workflow work like this, in short: <br />triage -> static analysis -> dynamic analysis -> report
+                <p>The way static malware analysis usually works is you analyze the malware without running it. Your first step is to try to find the signature of a binary file.</p>
+                <p>Most major OS have some way of calculating the cryptographic hash of a file. You can also write one too as I did for the desktop version.</p>
+                <p>Following that, you can reverse engineer the sample by loading the binary file into a decompiler or disassembler such as IDA Pro.</p>
+                </p>
+            </div>
+            <div class="col-md-12 mr-auto">
+                <h3>Lab Setup</h3>
+                <p class="lead">
+                <p>I recommend setting up an isolated lab. A poor man's working lab is a separate computer devoted to this task. It's more of an art than science. There are pre-existing tools you can use out there if you look it up. I recommend this setup because this was the setup I used:</p>
+                <ol>
+                    <li>Setup Remnux (Default password: malware)</li>
+                    <li>Ensure there is enough space to clone</li>
+                    <li>When the terminal appears, run this:
+                        <pre><code>
+                update-remnux
+                sudo apt-get update
+                sudo apt-get upgrade
+                sudo apt-get install virtualbox-guest-utils virtualbox-guest-x11 virtualbox-guest-dkms
+              </code></pre>
+                    </li>
+                    <li>Clone this by selecting "Full clone"</li>
+                    <li>If you absolutely need a shared folder (a temporary one if you must):
+                        <code>sudo adduser remnux vboxsf</code>
+                    </li>
+                    <li>You will need to log out and back in for the effect to take place</li>
+                </ol>
+                <p>Other techniques include verifying the filetype, using public databases and exploring the PE (portable executable, largely a Windows object).</p>
+                </p>
+            </div>
+            <div class="col-md-12 mr-auto">
+                <h3>Example Sample</h3>
+                <p class="lead">
+                <p>Using "Bombermania.exe" as an example, start by checking the filetype. On most *nix boxes, you could just do this: <code>file Bombermanmania.exe</code></p>
+                <p>This should yield: <code>Bombermania.exe: PE32 executable (GUI) Intel 80386, for MS Windows, UPX compressed</code></p>
+                <p>You can also use Python's magic (<code>pip install --user python-magic</code>) but there are some inconsistencies with the results. </p>
+                <p>If you are able to find a way to get the hash of the file as I have, putting it into the Malware Scanner should yield some stuff like this:</p>
+                <ul style="word-wrap: break-word;">
+                    <li>MD5: 471d39a51a79f342033c5b0636c244dc</li>
+                    <li>SHA-1: b0324ddd99677d9b0458c7328879f8fde268effc</li>
+                    <li>SHA-256: 1154535130d546eaa33bbc9051a9cb91e2b0e3a3991286c3d5b0a708110c9aa7</li>
+                    <li>File Type: Win32 EXE</li>
+                    <li>Magic literal: PE32 executable for MS Windows (GUI) Intel 80386 32-bit</li>
+                </ul>
+                <p>Additional detail includes when it was first submitted, creation date, etc. This one was (at the time of writing in 2017) created in 2005, first submitted in 2009.</p>
+                <p>You can dig into the PE. Often, you can determine whether or not the file is good based on the PE header alone. You can use PE-Header-Parser or Icon-Extractor.</p>
+                <p>Ultimately what you do depends on you or your organization's goal but your report should probably include the following at least:</p>
+                <ol>
+                    <li>Title</li>
+                    <li>Date</li>
+                    <li>Author (contact information, etc.)</li>
+                    <li>Abstract (summary, etc.)</li>
+                    <li>Files</li>
+                    <li>Traits (hashes, size, other names, etc.)</li>
+                    <li>Analysis (figures, statistics, etc.)</li>
+                </ol>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--footer-->
+<div id="foot"></div>
+
+<!--scroll to top-->
+<div class="scroll-top">
+    <i class="fa fa-angle-up" aria-hidden="true"></i>
+</div>
+
+<!-- theme switcher (FOR DEMO ONLY - REMOVE FROM PRODUCTION)-->
+<!--<div class="switcher-wrap">-->
+<!--    <div class="switcher-trigger">-->
+<!--        <span class="fa fa-gear"></span>-->
+<!--    </div>-->
+<!--    <div class="color-switcher">-->
+<!--        <h6>Color Switcher</h6>-->
+<!--        <ul class="mt-3 clearfix">-->
+<!--            <li class="bg-teal active" data-color="default" title="Default Teal"></li>-->
+<!--            <li class="bg-purple" data-color="purple" title="Purple"></li>-->
+<!--            <li class="bg-blue" data-color="blue" title="Blue"></li>-->
+<!--            <li class="bg-red" data-color="red" title="Red"></li>-->
+<!--            <li class="bg-green" data-color="green" title="Green"></li>-->
+<!--            <li class="bg-indigo" data-color="indigo" title="Indigo"></li>-->
+<!--            <li class="bg-orange" data-color="orange" title="Orange"></li>-->
+<!--            <li class="bg-cyan" data-color="cyan" title="Cyan"></li>-->
+<!--            <li class="bg-yellow" data-color="yellow" title="Yellow"></li>-->
+<!--            <li class="bg-pink" data-color="pink" title="Pink"></li>-->
+<!--        </ul>-->
+<!--        <p>These are just demo colors. You can <b>easily</b> create your own color scheme.</p>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="js/scripts.js"></script>
+<script>
+    $("#header").load("./head.html");
+    $("#foot").load("foot.html");
+</script>
+</body>
+</html>

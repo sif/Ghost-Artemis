@@ -1,0 +1,21 @@
+.switcher-wrap {
+    display: none !important;
+}
+
+.name-box {
+    border: thick papayawhip solid !important;
+    padding: 50px;
+}
+
+.slick-initialized .slick-slide.slick-active {
+    z-index: 10;
+}
+
+.slick-dots {
+    position: static !important;
+    /*top: -50rem !important;*/
+}
+
+code {
+    color: white !important;
+}
