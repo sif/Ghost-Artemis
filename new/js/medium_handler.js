@@ -32,7 +32,7 @@ window.onload = () => {
             o_c_d_text.innerHTML = data.items[0].pubDate.toString();
             let cont0 = data.items[0].content.replace(/<img[^>]*>/g,"");
             o_c_m_text.innerHTML =  cont0;
-            
+
             //second card
             two_a_link.setAttribute("href", data.items[1].link.toString());
             two_c_a_link.setAttribute("href", data.items[1].link.toString());
@@ -41,8 +41,8 @@ window.onload = () => {
             two_c_d_text.innerHTML = data.items[1].pubDate.toString();
             let cont1 = data.items[1].content.replace(/<img[^>]*>/g,"");
             two_c_m_text.innerHTML =  cont1;
-            
-            
+
+
             //third_card
             three_a_link.setAttribute("href", data.items[2].link.toString());
             three_c_a_link.setAttribute("href", data.items[2].link.toString());
