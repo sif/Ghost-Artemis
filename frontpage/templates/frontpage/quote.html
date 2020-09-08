@@ -1,0 +1,17 @@
+{% extends 'frontpage/base1.html' %}
+
+{% block content %}
+      <div class="col-lg-10 mx-auto">
+        <h2>Add a quote</h2>
+      </div>
+      <br />
+      <div class="form-group border rounded" style="padding: 25px;">
+        <form method="POST" class="post-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="save btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="py-4">
+      </div>
+{% endblock %}
