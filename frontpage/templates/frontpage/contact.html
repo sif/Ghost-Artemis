@@ -1,4 +1,4 @@
-{% extends 'frontpage/base.html' %}
+{% extends 'frontpage/base1.html' %}
 
 {% block content %}
       <div class="col-lg-10 mx-auto text-justify">
@@ -8,5 +8,15 @@
         <div class="alert alert-light border" role="alert">
           Ghost Artemis - Knowledge and tools to a better world - https://www.ghostartemis.com
         </div>
+
+        {% if random_quote %}
+        <blockquote class="blockquote">
+          <p class="mb-0">"{{ random_quote.quote }}"</p>
+          <p>{{ random_quote.author }}</p>
+        </blockquote>
+        {% endif %}
+      </div>
+
+      <div class="py-4">
       </div>
 {% endblock %}
