@@ -2,6 +2,4 @@
 
 Ghost Artemis
 =============
-Hi, this is the repo for Ghost Artemis and her projects.
-
-PR encouraged!
+Hi, this is the repo for Ghost Artemis and her projects. PR encouraged!
